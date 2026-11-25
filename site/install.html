@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Window</title>
+<meta name="description" content="How to install Window, a free Mac menu bar app: download, move it to Applications, and allow it once in System Settings.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Crect x='.5' y='.5' width='21' height='21' rx='6' fill='%231C1C1E'/%3E%3Cpath d='M5 16v-3M8 16v-6M11 16v-4M14 16v-7M17 16v-2' stroke='%23F2F2F7' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M11 4v4' stroke='%23F5692B' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0B0B0C;--ink:#F2F2F7;--soft:#A1A1A6;--line:#2E2E32;--edge:#3A3A3E;--card:#161618;--accent:#F5692B;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:var(--ink)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2{text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.preview{background:#2A1A10;color:#F5B48F;font:500 12px/1.4 var(--mono);letter-spacing:.3px;text-align:center;padding:8px 16px}
+nav{display:flex;justify-content:space-between;align-items:center;height:72px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:15px;font-weight:600}
+.navlinks{display:flex;gap:24px;font-size:14px;align-items:center}
+.navlinks a{text-decoration:none;color:var(--soft)}
+.navlinks a:hover,.navlinks a[aria-current]{color:var(--ink)}
+.navlinks .navpill{height:30px;display:inline-flex;align-items:center;padding:0 14px;border-radius:15px;background:var(--ink);color:var(--bg);font-weight:600}.navlinks .navpill:hover{color:var(--bg);background:#fff}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.6px;color:#8E8E93}
+.page{max-width:680px;margin:0 auto}
+.intro{padding:40px 0 48px}
+.intro h1{margin-top:16px;font-size:48px;line-height:1.06;font-weight:600;letter-spacing:-1.2px}
+.lede{margin-top:20px;font-size:19px;color:var(--soft)}
+.fine{margin-top:16px;font:500 12px var(--mono);letter-spacing:.5px;color:#8E8E93}
+.fine span{white-space:nowrap}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 22px;border-radius:22px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--edge);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.btn:hover{border-color:#5A5A5F}.btn.primary:hover{background:#FFFFFF}
+.steps{list-style:none;margin:0;padding:0}
+.steps>li{display:grid;grid-template-columns:40px minmax(0,1fr);padding:24px 0;border-top:1px solid var(--line)}
+.n{font:500 12px/28px var(--mono);color:var(--accent)}
+.steps h2{font-size:20px;line-height:28px;font-weight:600;letter-spacing:-.2px}
+.steps p,.steps li li{font-size:16px;color:var(--soft)}
+.steps p{margin-top:8px}
+.steps strong{color:var(--ink);font-weight:600}
+.apple{margin:16px 0 0;padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.apple ol{margin:12px 0 0;padding-left:20px}
+.apple li{margin-top:8px}
+.apple li::marker{font:500 12px var(--mono);color:#8E8E93}
+.apple q{color:var(--ink)}
+.src{font:500 11px var(--mono);letter-spacing:.5px;color:#8E8E93}
+.src a{color:#C7C7CC}
+code{font:13px var(--mono);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1px 5px;overflow-wrap:anywhere}
+pre{margin:12px 0 0;padding:14px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line);overflow-x:auto}
+pre code{background:none;border:0;padding:0;font-size:13px;line-height:1.6}
+.ph{font:500 12px var(--mono);color:#F5B48F}
+.fine .ph{white-space:normal;overflow-wrap:anywhere}
+section.more{padding:40px 0 0;border-top:1px solid var(--line)}
+section.more h2{font:500 12px var(--mono);letter-spacing:.6px;color:var(--soft);margin-bottom:16px}
+section.more p{font-size:17px;line-height:1.6}
+section.more p+p{margin-top:14px}
+section.more ul{margin:0;padding-left:20px;font-size:17px;line-height:1.6}
+section.more li+li{margin-top:12px}
+section.more .soft{color:var(--soft)}
+.sections{display:grid;gap:48px;padding:48px 0 112px}
+footer{padding:32px 0 48px;font-size:13px;color:#8E8E93;border-top:1px solid var(--line)}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .intro{padding:32px 0 40px}
+  .intro h1{font-size:36px;letter-spacing:-.8px}
+  .lede{font-size:17px}
+  .navlinks{gap:16px}.navlinks a:not(.navpill){display:none}
+  .ctas{flex-direction:column;align-items:stretch}
+  .steps>li{grid-template-columns:32px minmax(0,1fr)}
+  .preview{font-size:11px}
+  .sections{padding-bottom:80px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a class="brand" href="/window">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x=".5" y=".5" width="21" height="21" rx="6" fill="#1C1C1E" stroke="#3A3A3E"/><path d="M5 16v-3M8 16v-6M11 16v-4M14 16v-7M17 16v-2" stroke="#F2F2F7" stroke-width="1.4" stroke-linecap="round"/><path d="M11 4v4" stroke="#F5692B" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Window
+    </a>
+    <div class="navlinks"><a href="/window#how">How it works</a><a href="/window/install" aria-current="page">Install</a><a class="navpill" href="#download">Download</a></div>
+  </nav>
+
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">INSTALL</p>
+      <h1>Install Window in about two minutes.</h1>
+      <p class="lede">Download it, move it to Applications, and allow it once in System Settings. This version isn’t notarized by Apple, so macOS asks you to confirm the first time.</p>
+      <div class="ctas" id="download">
+        <a class="btn primary" href="https://github.com/raisulchowdhury/window/releases/latest/download/Window-1.0.0.zip">Download for Mac</a>
+        <a class="btn" href="https://github.com/raisulchowdhury/window">View the source</a>
+      </div>
+      <p class="fine"><span>MACOS 26 OR LATER</span> · <span>FREE</span> · <span>SHA-256: <a href="https://github.com/raisulchowdhury/window/releases/latest/download/Window-1.0.0.zip.sha256">ON GITHUB</a></span></p>
+    </header>
+
+    <ol class="steps">
+      <li><span class="n">1</span><div>
+        <h2>Download</h2>
+        <p>Download the Window zip file with the button above, or from <a href="https://github.com/raisulchowdhury/window/releases/latest">the latest release on GitHub</a>. It’s named like <code>Window-1.0.0.zip</code>.</p>
+        <p>Want to check the file (step 6)? Keep the zip. Safari unzips downloads and removes the zip unless you turn off Safari&nbsp;&gt; Settings&nbsp;&gt; General&nbsp;&gt; Open “safe” files after downloading.</p>
+      </div></li>
+      <li><span class="n">2</span><div>
+        <h2>Unzip</h2>
+        <p>Double-click the zip in your Downloads folder. You get <code>Window.app</code>. If Safari already unzipped it, it’s in Downloads.</p>
+      </div></li>
+      <li><span class="n">3</span><div>
+        <h2>Move it to Applications</h2>
+        <p>Drag <code>Window.app</code> to the Applications folder in the Finder sidebar. Do this before you open it.</p>
+      </div></li>
+      <li><span class="n">4</span><div>
+        <h2>Open it the first time</h2>
+        <p>Double-click Window in Applications. macOS warns that it can’t check Window for malicious software. The exact words depend on your macOS version. Click <strong>Done</strong>, not Move to Trash.</p>
+        <p>Right-clicking the app and choosing Open no longer gets past this warning on recent macOS. Use System Settings instead.</p>
+      </div></li>
+      <li><span class="n">5</span><div>
+        <h2>Allow it in System Settings</h2>
+        <p>Apple’s steps for macOS Tahoe 26:</p>
+        <div class="apple">
+          <p class="src">FROM APPLE SUPPORT · <a href="https://support.apple.com/guide/mac-help/mh40617/26/mac/26">OPEN AN APP BY OVERRIDING SECURITY SETTINGS</a></p>
+          <ol>
+            <li><q>On your Mac, choose Apple menu &gt; System Settings, then click Privacy &amp; Security in the sidebar. (You may need to scroll down.)</q></li>
+            <li><q>Go to Security, then click Open.</q> You’ll see a line about Window there.</li>
+            <li><q>Click Open Anyway.</q> <q>This button is available for about an hour after you try to open the app.</q> If it’s gone, open Window again and come back.</li>
+            <li><q>Enter your login password, then click OK.</q></li>
+          </ol>
+        </div>
+        <p>Window opens in the menu bar at the top right of your screen, not in the Dock. From now on it opens like any other app.</p>
+      </div></li>
+      <li><span class="n">6</span><div>
+        <h2>Check the download <span class="eyebrow">OPTIONAL</span></h2>
+        <p>The SHA-256 checksum is a fingerprint of the file. If yours matches the one in <a href="https://github.com/raisulchowdhury/window/releases/latest/download/Window-1.0.0.zip.sha256"><code>Window-1.0.0.zip.sha256</code></a> on the GitHub release, you have the exact file that was published. Open Terminal and run:</p>
+        <pre><code>cd ~/Downloads
+shasum -a 256 Window-1.0.0.zip</code></pre>
+        <p>Use your file’s real name. The long code it prints must match exactly. With <code>Window-1.0.0.zip.sha256</code> in the same folder, <code>shasum -a 256 -c Window-1.0.0.zip.sha256</code> prints <code>OK</code> when it matches. If it doesn’t match, delete the zip and don’t open the app.</p>
+      </div></li>
+    </ol>
+
+    <div class="sections">
+      <section class="more" aria-labelledby="why-h">
+        <h2 id="why-h">WHY MACOS WARNS YOU</h2>
+        <p>macOS checks apps from the internet with Apple. A developer pays for an Apple Developer membership, signs the app and sends it to Apple to scan. That’s called notarization. Window is a free side project, and this version isn’t notarized, so macOS can’t vouch for it and asks you to decide.</p>
+        <p>You don’t have to take Window on trust. The source code is <a href="https://github.com/raisulchowdhury/window">public on GitHub</a>, so anyone can read what it does or build it themselves. Window has no account, no analytics and no server. Only download it from this website or its GitHub releases page.</p>
+      </section>
+
+      <section class="more" aria-labelledby="diff-h">
+        <h2 id="diff-h">WHAT THE DOWNLOAD DOESN’T INCLUDE</h2>
+        <ul>
+          <li><strong>The desktop widget.</strong> <span class="soft">The widget and the app need a shared space to pass the plan between them, and macOS only gives that to apps signed with an Apple developer team. Build Window from source with your own team to get it.</span></li>
+          <li><strong>Automatic updates.</strong> <span class="soft">Download the new version and replace the old one in Applications. macOS may ask you to allow it again.</span></li>
+        </ul>
+        <p class="soft" style="margin-top:16px">The first time you start a watch, macOS asks whether Window can send notifications. Allow them to get the wrap-up and leave alerts.</p>
+      </section>
+
+      <section class="more" aria-labelledby="rm-h">
+        <h2 id="rm-h">UNINSTALL</h2>
+        <ul>
+          <li>Click Window in the menu bar, click the gear at the bottom left of the panel, and choose <strong>Quit Window</strong>. If Open at Login is ticked in that menu, untick it first.</li>
+          <li>Drag Window from Applications to the Trash.</li>
+          <li><span class="soft">To remove your saved places and settings too, choose Go&nbsp;&gt; Go to Folder in Finder, enter</span> <code>~/Library/Containers/xyz.raisul.window.taras</code><span class="soft">, and move that folder to the Trash.</span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>Window uses Apple Maps for traffic. It isn’t made by or affiliated with Apple.</footer>
+</div>
+</body>
+</html>

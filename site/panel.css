@@ -1,0 +1,33 @@
+/* Window panel. Tokens from the app: panel #1C1C1E, rows #232326,
+   hairline #2E2E32, labels #8E8E93, orange #F5692B. 360 x 401 points. */
+.wp{--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;position:relative;width:360px;height:401px;box-sizing:border-box;border-radius:18px;overflow:hidden;background:#1C1C1E;color:#F2F2F7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;display:flex;flex-direction:column;box-shadow:inset 0 0 0 1px rgba(255,255,255,.09),0 24px 48px rgba(0,0,0,.5);-webkit-font-smoothing:antialiased;text-align:left}
+.wp *{box-sizing:border-box}
+.wp-top{position:relative;height:85px;flex:none;overflow:hidden}
+.wp-track{position:absolute;left:0;top:0;bottom:0;width:0;transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.wp-band{position:absolute;top:0;height:85px;background:rgba(245,105,43,.34);transition:left .32s cubic-bezier(.2,.8,.2,1),width .32s cubic-bezier(.2,.8,.2,1),opacity .2s}
+.wp-tick{position:absolute;bottom:0;width:1px;height:15px;background:#4A4A4F}
+.wp-major{height:30px;background:#707076}
+.wp-out{opacity:.35}
+.wp-bar{position:absolute;bottom:0;width:2px;margin-left:-1px;background:#F2F2F7}
+.wp-dim{opacity:.35}
+.wp-hits{position:absolute;inset:0}
+.wp-hit{position:absolute;bottom:0;width:14px;height:85px;margin:0;padding:0;border:0;background:transparent;cursor:pointer;transition:left .32s cubic-bezier(.2,.8,.2,1)}
+button.wp-hit:focus-visible{outline:2px solid #F5692B;outline-offset:-2px;border-radius:3px}
+.wp-cursor{position:absolute;left:179px;top:0;width:2px;height:31px;background:#F5692B;pointer-events:none}
+.wp-cap{position:absolute;top:12px;font:500 10px/12px var(--mono);letter-spacing:.4px;color:#8E8E93;pointer-events:none}
+.wp-left{left:12px}.wp-right{right:12px}
+.wp-row{height:64px;flex:none;padding:15px 12px 0;border-top:1px solid #2E2E32;background:#232326}
+.wp-row.wp-first{background:#1C1C1E}
+.wp-meta{display:flex;justify-content:space-between;align-items:center;height:12px;font:500 10px/12px var(--mono);letter-spacing:.4px;color:#8E8E93;white-space:nowrap}
+.wp-status{display:flex;align-items:center;gap:5px}
+.wp-icon{display:flex}
+.wp-main{display:flex;justify-content:space-between;align-items:center;margin-top:8px;height:20px;font-size:15px;line-height:20px;letter-spacing:-.1px}
+.wp-value{font-weight:500;font-variant-numeric:tabular-nums}
+.wp-foot{height:60px;flex:none;border-top:1px solid #2E2E32;background:#232326;padding:0 12px;display:flex;align-items:center;justify-content:space-between}
+.wp-footr{display:flex;align-items:center;gap:6px}
+.wp-circle{width:36px;height:36px;border-radius:18px;border:1px solid #3A3A3E;display:flex;align-items:center;justify-content:center;color:#D1D1D6}
+.wp-faint{opacity:.55}
+.wp-capsule{height:36px;padding:0 14px;border-radius:18px;border:1px solid #3A3A3E;display:flex;align-items:center;font:500 11px var(--mono);letter-spacing:.4px;white-space:nowrap}
+.wp-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
+.wp-still .wp-track,.wp-still .wp-band,.wp-still .wp-hit{transition:none}
+@media (prefers-reduced-motion:reduce){.wp-track,.wp-band,.wp-hit{transition:none}}

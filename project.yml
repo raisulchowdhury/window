@@ -1,0 +1,134 @@
+name: Window
+options:
+  deploymentTarget:
+    macOS: "26.0"
+configFiles:
+  Debug: Config/Window.xcconfig
+  Release: Config/Window.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  WindowCore:
+    type: framework.static
+    platform: macOS
+    sources:
+      - WatchCore.swift
+      - TarasScrubState.swift
+      - TarasMotion.swift
+      - TarasPanelLifecycle.swift
+      - TarasRulerModel.swift
+      - TarasPanelSnapshot.swift
+      - TarasPanelFixtures.swift
+      - PlanSnapshot.swift
+      - PlanWidgetModel.swift
+      - PlanWidgetFixtures.swift
+      - EveningCore.swift
+      - LiveWatch.swift
+      - LiveServices.swift
+      - TarasLiveState.swift
+      - TarasLiveController.swift
+      - LiveWindowView.swift
+      - WindowPrototype.swift
+      - TimeInteractions.swift
+      - WindowPresentation.swift
+    settings:
+      base:
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: $(inherited) WINDOW_TARAS_NATIVE
+        PRODUCT_BUNDLE_IDENTIFIER: $(WINDOW_BUNDLE_PREFIX).core
+        GENERATE_INFOPLIST_FILE: YES
+        SKIP_INSTALL: YES
+  Window:
+    type: application
+    platform: macOS
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        WindowAppGroup: $(DEVELOPMENT_TEAM).window.shared
+        CFBundleURLTypes:
+          - CFBundleURLName: $(WINDOW_BUNDLE_PREFIX).panel
+            CFBundleURLSchemes:
+              - window
+    sources:
+      - App
+      - path: Assets/WindowIcon.icon
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(WINDOW_BUNDLE_PREFIX).taras
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        ASSETCATALOG_COMPILER_APPICON_NAME: WindowIcon
+        CODE_SIGN_ENTITLEMENTS: App/Window.entitlements
+        ENABLE_APP_SANDBOX: YES
+    dependencies:
+      - target: WindowCore
+        embed: false
+      - target: WindowWidget
+        embed: true
+  WindowWidget:
+    type: app-extension
+    platform: macOS
+    info:
+      path: Widget/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        WindowAppGroup: $(DEVELOPMENT_TEAM).window.shared
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    sources:
+      - Widget
+      - App/WidgetSnapshot.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(WINDOW_BUNDLE_PREFIX).taras.widget
+        INFOPLIST_FILE: Widget/Info.plist
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_ENTITLEMENTS: Widget/WindowWidget.entitlements
+        ENABLE_APP_SANDBOX: YES
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
+    dependencies:
+      - target: WindowCore
+        embed: false
+  WindowCoreTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - tests/WindowCoreTests.swift
+      - tests/TarasLiveTests.swift
+      - WatchCoreTests.swift
+      - LiveWatchTests.swift
+      - tests/CraftCoreTests.swift
+      - tests/CraftLiveTests.swift
+      - tests/EveningCoreTests.swift
+      - tests/EveningLiveTests.swift
+      - tests/MonitoringCopyTests.swift
+      - tests/MicroInteractionTests.swift
+      - tests/FluidityTests.swift
+      # The existing fluidity suite also checks decorative motion.
+      - CanopyDiscoveryCore.swift
+    dependencies:
+      - target: WindowCore
+        embed: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(WINDOW_BUNDLE_PREFIX).taras.coretests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: ""
+        BUNDLE_LOADER: ""
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: $(inherited) WINDOW_CORE_TESTS
+schemes:
+  Window:
+    build:
+      targets:
+        Window: all
+    test:
+      targets:
+        - WindowCoreTests
