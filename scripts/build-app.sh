@@ -1,0 +1,6 @@
+#!/bin/zsh
+set -euo pipefail
+cd "${0:A:h:h}"
+xcodegen generate
+xcodebuild -scheme Window -configuration Debug -derivedDataPath "$HOME/Library/Caches/WindowBuild" build
+print "$HOME/Library/Caches/WindowBuild/Build/Products/Debug/Window.app"
